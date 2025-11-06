@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9 Personalities of Yunnan Ethnic (PYE)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        title{
+            font-size: 160px;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin: 20px 0;
+        }
+        h1 {
+            text-align: center;
+            color: #2e8b57;
+            margin-bottom: 30px;
+            font-size: 36px; /* 增加标题大小 */
+        }
+        .question {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .question-text {
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .options-container {
+            margin-top: 10px;
+        }
+        .options {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            width: 80%;
+        }
+        .option {
+            text-align: center;
+            position: relative;
+        }
+        .option input[type="radio"] {
+            display: none;
+        }
+        .option label {
+            display: block;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        /* 从中间向两边的大小变化 */
+        .option:nth-child(1) label, .option:nth-child(7) label {
+            width: 40px;
+            height: 40px;
+        }
+        .option:nth-child(2) label, .option:nth-child(6) label {
+            width: 32px;
+            height: 32px;
+        }
+        .option:nth-child(3) label, .option:nth-child(5) label {
+            width: 24px;
+            height: 24px;
+        }
+        .option:nth-child(4) label {
+            width: 20px;
+            height: 20px;
+        }
+        /* 从左到右的颜色渐变 */
+        .option:nth-child(1) label {
+            border: 2px solid #1a9850;
+            background-color: transparent;
+        }
+        .option:nth-child(2) label {
+            border: 2px solid #66bd63;
+            background-color: transparent;
+        }
+        .option:nth-child(3) label {
+            border: 2px solid #a6d96a;
+            background-color: transparent;
+        }
+        .option:nth-child(4) label {
+            border: 2px solid #d9d9d9;
+            background-color: transparent;
+        }
+        .option:nth-child(5) label {
+            border: 2px solid #cab2d6;
+            background-color: transparent;
+        }
+        .option:nth-child(6) label {
+            border: 2px solid #9970ab;
+            background-color: transparent;
+        }
+        .option:nth-child(7) label {
+            border: 2px solid #762a83;
+            background-color: transparent;
+        }
+        /* 选中状态 - 填充颜色并显示白色勾 */
+        .option:nth-child(1) input[type="radio"]:checked + label {
+            background-color: #1a9850;
+        }
+        .option:nth-child(2) input[type="radio"]:checked + label {
+            background-color: #66bd63;
+        }
+        .option:nth-child(3) input[type="radio"]:checked + label {
+            background-color: #a6d96a;
+        }
+        .option:nth-child(4) input[type="radio"]:checked + label {
+            background-color: #d9d9d9;
+        }
+        .option:nth-child(5) input[type="radio"]:checked + label {
+            background-color: #cab2d6;
+        }
+        .option:nth-child(6) input[type="radio"]:checked + label {
+            background-color: #9970ab;
+        }
+        .option:nth-child(7) input[type="radio"]:checked + label {
+            background-color: #762a83;
+        }
+        /* 白色勾样式 - 大小根据圆圈大小调整 */
+        .option:nth-child(1) input[type="radio"]:checked + label::after,
+        .option:nth-child(7) input[type="radio"]:checked + label::after {
+            font-size: 18px;
+        }
+        .option:nth-child(2) input[type="radio"]:checked + label::after,
+        .option:nth-child(6) input[type="radio"]:checked + label::after {
+            font-size: 16px;
+        }
+        .option:nth-child(3) input[type="radio"]:checked + label::after,
+        .option:nth-child(5) input[type="radio"]:checked + label::after {
+            font-size: 14px;
+        }
+        .option:nth-child(4) input[type="radio"]:checked + label::after {
+            font-size: 12px;
+        }
+        /* 基本勾样式 */
+        .option input[type="radio"]:checked + label::after {
+            content: "✓";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+        }
+        .option-labels {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px auto;
+            width: 80%;
+            color: #666;
+            font-size: 14px;
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #2e8b57 0%, #3cb371 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px auto;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(46, 139, 87, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46, 139, 87, 0.4);
+        }
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        .submit-btn i {
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+        .submit-btn:hover i {
+            transform: translateX(5px);
+        }
+        .submit-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        .submit-btn:hover::after {
+            opacity: 1;
+        }
+        #result {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-top: 30px;
+            display: none;
+        }
+        #ethnicName {
+            color: #2e8b57;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        #ethnicDescription {
+            font-style: italic;
+            line-height: 1.6;
+        }
+        .ethnic-info {
+            margin-top: 30px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .ethnic-info h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2e8b57;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .ethnic-info h3 i {
+            margin-right: 10px;
+        }
+        .ethnic-info ul {
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .ethnic-info li {
+            margin-bottom: 0;
+            background-color: white;
+            padding: 12px 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+        .ethnic-info li:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .ethnic-info li strong {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            background-color: #2e8b57;
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-size: 0.8rem;
+        }
+        /* 百分比条样式 */
+        .score-bar-container {
+            margin: 15px 0;
+        }
+        .score-bar-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        .score-bar {
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        .score-bar-fill {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+        .score-percentage {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 12px;
+            text-shadow: 0 0 2px rgba(0,0,0,0.5);
+        }
+        /* 各民族颜色 */
+        .ethnic-a { background-color: #1a9850; }
+        .ethnic-b { background-color: #66bd63; }
+        .ethnic-c { background-color: #a6d96a; }
+        .ethnic-d { background-color: #d9d9d9; }
+        .ethnic-e { background-color: #cab2d6; }
+        .ethnic-f { background-color: #9970ab; }
+        .ethnic-g { background-color: #762a83; }
+        .ethnic-h { background-color: #4575b4; }
+        .ethnic-i { background-color: #74add1; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>9 Personalities of Yunnan Ethnic (PYE)</h1>
+        <form id="personalityForm">
+            <!-- 问题将通过JavaScript动态生成 -->
+            <button type="button" onclick="calculateResults()" class="submit-btn">
+                查看我的民族性格 <i class="fas fa-arrow-right"></i>
+            </button>
+        </form>
+        <div id="result">
+            <h2 class="text-xl font-bold mb-4">你的结果</h2>
+            <h3 id="ethnicName" class="text-2xl font-semibold"></h3>
+            <p id="ethnicDescription" class="mb-6"></p>
+            <div class="ethnic-scores" id="ethnicScores"></div>
+        </div>
+        <div class="ethnic-info">
+            <h3><i class="fas fa-mountain-sun"></i>云南民族性格类型:</h3>
+            <ul>
+                <li><strong>a</strong>白族——热情好客的本主信徒</li>
+                <li><strong>b</strong>哈尼族——勤劳的大地锦衣耕织者</li>
+                <li><strong>c</strong>傣族——追求美学的艺术家</li>
+                <li><strong>d</strong>傈僳族——自然之子</li>
+                <li><strong>e</strong>拉祜族——血性豪放的猎虎者</li>
+                <li><strong>f</strong>佤族——世界之外的原始部落首领</li>
+                <li><strong>g</strong>纳西族——东巴文明学者</li>
+                <li><strong>h</strong>布朗族——佛系养成家</li>
+                <li><strong>i</strong>独龙族——怀揣希望的纹面人</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        // 测试题中的33个问题
+        const questions = [
+            "你向来喜欢乐结善缘，对结交新朋友一事乐此不疲。",
+            "为了招待客人，你愿意费心费力做很多准备。",
+            "你认为勤劳是一种美好的品质，并愿意为之付出努力。",
+            "你喜欢动态的生命而不是静止的生命。",
+            "通常，相较于客观陈述的事实，那些富有表现力的艺术形式更能打动你。",
+            "度假时，你更喜欢投身大自然而不是城市。",
+            "你认为学术研究很有趣。",
+            "相较于容易理解的事物，你更愿意研究一些更深奥的科学问题。",
+            "即使遇到天大的挫折和如山般沉重的压力，你也可以快速调整自己，保持积极乐观的心态。",
+            "你对美学有更高的艺术追求。",
+            "你对学术科研有更高的追求。",
+            "你的生活与工作空间总是井井有条、一尘不染。",
+            "你更喜欢原始的的而非精致的。",
+            "相比于改变可能会带来的风险，你倾向于选择保持现状。",
+            "你常常随遇而安。",
+            "面对危险与不确定，你愿意成为冒险者和先锋。",
+            "你热衷于参与团队活动。",
+            "你对知识有强烈的渴望。",
+            "与喧嚣热闹的集体活动相比，你对那些能让自己感到宁静的独自爱好或活动情有独钟。",
+            "对于撰写虚构故事为生这种事，在你看来简直匪夷所思。",
+            "比起形单影只的孤独时光，你更陶醉于和他人相处。",
+            "你乐于展示自己，让别人知道你的才华。",
+            "你不拘小节，大大咧咧。",
+            "你认为自己很勤劳。",
+            "你热爱极限运动，例如攀登雪山、攀冰、跳伞等。",
+            "你喜欢参与激烈的辩论以得到正确的结论。",
+            "竞争让你感到疲惫。",
+            "大多数时候，你对生活都抱有美好的希望。",
+            "比起激烈的竞争，你会选择安逸的生活。",
+            "你热爱自然中的一切。",
+            "你平时喜欢音乐、舞蹈等艺术形式。",
+            "身边的人都说你很外向。",
+            "你喜欢和人打交道。"
+        ];
+        // 评分规则
+        const scoringRules = {
+            'q1': {positive: ['a'], negative: ['h']},
+            'q2': {positive: ['a'], negative: ['h']},
+            'q3': {positive: ['b', 'i'], negative: []},
+            'q4': {positive: ['b', 'c', 'd', 'e', 'f', 'i'], negative: ['g', 'h']},
+            'q5': {positive: ['c', 'f'], negative: ['g']},
+            'q6': {positive: ['d', 'f'], negative: []},
+            'q7': {positive: ['g'], negative: []},
+            'q8': {positive: ['g'], negative: []},
+            'q9': {positive: ['i'], negative: ['h']},
+            'q10': {positive: ['c'], negative: []},
+            'q11': {positive: ['g'], negative: []},
+            'q12': {positive: ['b', 'i'], negative: []},
+            'q13': {positive: ['d', 'f'], negative: []},
+            'q14': {positive: ['h'], negative: []},
+            'q15': {positive: ['h'], negative: []},
+            'q16': {positive: ['e'], negative: []},
+            'q17': {positive: ['a'], negative: []},
+            'q18': {positive: ['g'], negative: []},
+            'q19': {positive: ['h'], negative: []},
+            'q20': {positive: ['g'], negative: ['c']},
+            'q21': {positive: ['a'], negative: ['h']},
+            'q22': {positive: ['c'], negative: ['h']},
+            'q23': {positive: ['e', 'f'], negative: []},
+            'q24': {positive: ['b'], negative: []},
+            'q25': {positive: ['e'], negative: []},
+            'q26': {positive: ['e', 'g'], negative: []},
+            'q27': {positive: ['d', 'h'], negative: ['e']},
+            'q28': {positive: ['b', 'i'], negative: []},
+            'q29': {positive: ['h'], negative: []},
+            'q30': {positive: ['d'], negative: []},
+            'q31': {positive: ['c'], negative: []},
+            'q32': {positive: ['a'], negative: []},
+            'q33': {positive: ['a'], negative: []}
+        };
+        // 各民族性格描述
+        const ethnicDescriptions = {
+            'a': {
+                name: '白族',
+                description: '热情好客的本主信徒。你乐于结交朋友，热衷于社交活动，善于招待客人并享受与他人交往的过程。'
+            },
+            'b': {
+                name: '哈尼族',
+                description: '勤劳的大地锦衣耕织者。你重视勤劳，有条理性，对生活充满希望和积极态度。'
+            },
+            'c': {
+                name: '傣族',
+                description: '追求美学的艺术家。你对艺术和美学有高度追求，喜欢音乐、舞蹈等艺术形式，乐于展示自己的才华。'
+            },
+            'd': {
+                name: '傈僳族',
+                description: '自然之子。你热爱自然，喜欢在大自然中度假，对原始事物有亲近感，不喜欢激烈竞争。'
+            },
+            'e': {
+                name: '拉祜族',
+                description: '血性豪放的猎虎者。你热爱冒险与挑战，喜欢极限运动，不惧风险，乐于参与激烈辩论和竞争。'
+            },
+            'f': {
+                name: '佤族',
+                description: '世界之外的原始部落首领。你喜欢原始而非精致的事物，享受大自然的环境，性格较为随性不拘小节。'
+            },
+            'g': {
+                name: '纳西族',
+                description: '东巴文明学者。你对学术研究充满兴趣，热爱知识，喜欢研究深奥的科学问题，追求学术科研的成就。'
+            },
+            'h': {
+                name: '布朗族',
+                description: '佛系养成家。你喜欢宁静独处，倾向于保持现状，随遇而安，不喜欢展示自己，更喜欢安逸而非竞争。'
+            },
+            'i': {
+                name: '独龙族',
+                description: '怀揣希望的纹面人。你对生活抱有美好希望，即使遇到困难也能保持积极乐观，具有勤劳的品质。'
+            }
+        };
+        // 动态生成所有问题
+        function generateQuestions() {
+            const form = document.getElementById('personalityForm');
+            const submitButton = form.querySelector('button');
+            // 清除现有内容
+            while (form.firstChild && form.firstChild !== submitButton) {
+                form.removeChild(form.firstChild);
+            }
+            // 添加每个问题
+            for (let i = 0; i < questions.length; i++) {
+                const questionNumber = i + 1;
+                const questionId = 'q' + questionNumber;
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                const questionText = document.createElement('div');
+                questionText.className = 'question-text';
+                questionText.textContent = questionNumber + '. ' + questions[i];
+                questionDiv.appendChild(questionText);
+                const optionsContainer = document.createElement('div');
+                optionsContainer.className = 'options-container';
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'options';
+                // 创建7个选项（从绿色到紫色）
+                const values = [-15, -10, -5, 0, 5, 10, 15];
+                for (let j = 0; j < 7; j++) {
+                    const optionDiv = document.createElement('div');
+                    optionDiv.className = 'option';
+                    const input = document.createElement('input');
+                    input.type = 'radio';
+                    input.name = questionId;
+                    input.id = `${questionId}_${j + 1}`;
+                    input.value = values[j];
+                    // 设置中间选项为默认选中
+                    if (j === 3) {
+                        input.checked = true;
+                    }
+                    const label = document.createElement('label');
+                    label.htmlFor = `${questionId}_${j + 1}`;
+                    optionDiv.appendChild(input);
+                    optionDiv.appendChild(label);
+                    optionsDiv.appendChild(optionDiv);
+                }
+                optionsContainer.appendChild(optionsDiv);
+                // 对第一个问题添加标签
+                if (i === 0) {
+                    const optionLabelsDiv = document.createElement('div');
+                    optionLabelsDiv.className = 'option-labels';
+                    const agreeLabel = document.createElement('span');
+                    agreeLabel.textContent = '同意';
+                    const disagreeLabel = document.createElement('span');
+                    disagreeLabel.textContent = '不认同';
+                    optionLabelsDiv.appendChild(agreeLabel);
+                    optionLabelsDiv.appendChild(document.createElement('span')); // 空白占位
+                    optionLabelsDiv.appendChild(disagreeLabel);
+                    optionsContainer.appendChild(optionLabelsDiv);
+                }
+                questionDiv.appendChild(optionsContainer);
+                form.insertBefore(questionDiv, submitButton);
+            }
+        }
+        // 页面加载时生成所有问题
+        window.onload = generateQuestions;
+        // 计算结果
+        function calculateResults() {
+            // 初始化各民族得分
+            let scores = {
+                'a': 0, 'b': 0, 'c': 0, 'd': 0, 'e': 0,
+                'f': 0, 'g': 0, 'h': 0, 'i': 0
+            };
+            // 计算每个问题的得分
+            for (let i = 1; i <= questions.length; i++) {
+                const questionId = 'q' + i;
+                const selectedValue = parseInt(document.querySelector(`input[name="${questionId}"]:checked`)?.value || 0);
+                // 应用评分规则
+                if (scoringRules[questionId]) {
+                    // 正向评分
+                    scoringRules[questionId].positive.forEach(ethnic => {
+                        scores[ethnic] += selectedValue;
+                    });
+                    // 负向评分
+                    scoringRules[questionId].negative.forEach(ethnic => {
+                        scores[ethnic] -= selectedValue;
+                    });
+                }
+            }
+            // 将得分转换为百分比（总和为100%）
+            let totalScore = 0;
+            for (const ethnic in scores) {
+                // 确保所有分数都是正数（最小为0）
+                scores[ethnic] = Math.max(0, scores[ethnic]);
+                totalScore += scores[ethnic];
+            }
+            // 计算百分比
+            let percentages = {};
+            if (totalScore > 0) {
+                for (const ethnic in scores) {
+                    percentages[ethnic] = (scores[ethnic] / totalScore) * 100;
+                }
+            } else {
+                // 如果所有得分都是0，则平均分配
+                const equalPercentage = 100 / Object.keys(scores).length;
+                for (const ethnic in scores) {
+                    percentages[ethnic] = equalPercentage;
+                }
+            }
+            // 找出百分比最高的民族
+            let highestPercentage = -Infinity;
+            let highestEthnic = '';
+            for (const ethnic in percentages) {
+                if (percentages[ethnic] > highestPercentage) {
+                    highestPercentage = percentages[ethnic];
+                    highestEthnic = ethnic;
+                }
+            }
+            // 显示结果
+            document.getElementById('ethnicName').textContent = ethnicDescriptions[highestEthnic].name;
+            document.getElementById('ethnicDescription').textContent = ethnicDescriptions[highestEthnic].description;
+            // 显示所有民族的百分比条
+            let scoresHTML = '<h4 class="text-lg font-semibold mb-4">各民族性格匹配度:</h4>';
+            // 为每个民族创建百分比条
+            for (const ethnic in percentages) {
+                const percentage = percentages[ethnic];
+                scoresHTML += `
+                    <div class="score-bar-container">
+                        <div class="score-bar-label">
+                            <span>${ethnicDescriptions[ethnic].name}</span>
+                            <span>${percentage.toFixed(1)}%</span>
+                        </div>
+                        <div class="score-bar">
+                            <div class="score-bar-fill ethnic-${ethnic}" style="width: ${percentage}%"></div>
+                            <span class="score-percentage">${percentage.toFixed(1)}%</span>
+                        </div>
+                    </div>
+                `;
+            }
+            document.getElementById('ethnicScores').innerHTML = scoresHTML;
+            // 显示结果区域
+            document.getElementById('result').style.display = 'block';
+            // 平滑滚动到结果
+            document.getElementById('result').scrollIntoView({behavior: 'smooth'});
+        }
+    </script>
+</body>
+</html>

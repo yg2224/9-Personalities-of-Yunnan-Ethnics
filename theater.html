@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小剧场 - 9 Personalities of Yunnan Ethnic (9PYE)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f5f8f5; /* 浅绿色背景 */
+            flex-direction: row; /* 确保水平排列 */
+            overflow-x: hidden; /* 防止水平滚动 */
+        }
+        
+        /* 侧边栏样式 */
+        .sidebar {
+            width: 250px;
+            background: #34a853; /* 主题绿色 */
+            box-shadow: 2px 0 15px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            color: white;
+            flex-shrink: 0; /* 防止侧边栏被压缩 */
+        }
+        
+        .sidebar-header {
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            padding: 0 20px 15px;
+            margin-bottom: 15px;
+        }
+        
+        .sidebar-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.4;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .nav-item {
+            padding: 14px 25px;
+            border-left: 4px solid transparent;
+            color: rgba(255,255,255,0.9);
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .nav-item:hover {
+            background-color: rgba(255,255,255,0.1);
+            border-left-color: #fff;
+        }
+        
+        .nav-item.active {
+            background-color: rgba(255,255,255,0.15);
+            border-left-color: #fff;
+            font-weight: bold;
+        }
+        
+        /* 主内容区样式 */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto; /* 内容过多时可滚动 */
+        }
+        
+        .page-title {
+            color: #34a853;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .page-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #34a853;
+            margin: 15px auto;
+        }
+        
+        .theater-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .story-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .story-header {
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 15px;
+        }
+        
+        .story-title {
+            font-size: 24px;
+            color: #34a853;
+            margin-bottom: 10px;
+        }
+        
+        .story-meta {
+            display: flex;
+            color: #777;
+            font-size: 14px;
+        }
+        
+        .story-meta div {
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .meta-icon {
+            margin-right: 5px;
+            font-size: 16px;
+        }
+        
+        .story-content {
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 20px;
+        }
+        
+        .story-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+        
+        .ethnicities {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .ethnicity-tag {
+            background: #eef7ee;
+            color: #34a853;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+        
+        .read-more {
+            background: #34a853;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .read-more:hover {
+            background: #2d9249;
+        }
+        
+        .character {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #34a853;
+        }
+        
+        .dialog {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column; /* 小屏幕上垂直排列 */
+            }
+            
+            .sidebar {
+                width: 100%;
+                padding: 10px 0;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .story-card {
+                padding: 15px;
+            }
+            
+            .page-title {
+                font-size: 24px;
+            }
+            
+            .story-meta {
+                flex-wrap: wrap;
+            }
+            
+            .story-meta div {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>欢迎来到<br>9 Personalities of<br>Yunnan Ethnic (9PYE)</h2>
+        </div>
+        <div class="sidebar-nav">
+            <a href="index.html" style="text-decoration: none; color: inherit;"><div class="nav-item">首页</div></a>
+<a href="theater.html" style="text-decoration: none; color: inherit;"><div class="nav-item  active">小剧场</div></a>
+<a href="clothing-culture.html" style="text-decoration: none; color: inherit;"><div class="nav-item">服饰文化</div></a>
+<a href="language.html" style="text-decoration: none; color: inherit;"><div class="nav-item">语言文化</div></a>
+<a href="about-us.html" style="text-decoration: none; color: inherit;"><div class="nav-item">关注我们</div></a>
+<a href="feedback.html" style="text-decoration: none; color: inherit;"><div class="nav-item">反馈</div></a>
+        </div>
+    </div>
+    
+    <!-- 主内容区 -->
+    <div class="main-content">
+        <h1 class="page-title">云南民族小剧场</h1>
+        
+        <div class="theater-container">
+            <div class="story-card">
+                <div class="story-header">
+                    <h2 class="story-title">「年味对话」白族与傣族的春节见闻</h2>
+                    <div class="story-meta">
+                        <div><span class="meta-icon">📅</span> 2023-02-15</div>
+                        <div><span class="meta-icon">👁️</span> 2,456次阅读</div>
+                        <div><span class="meta-icon">💬</span> 32条评论</div>
+                    </div>
+                </div>
+                
+                <div class="story-content">
+                    <div class="character">【场景：云南某高校，新学期开始，白族学生李文和傣族学生苏梅在分享各自春节假期的经历】</div>
+                    
+                    <div class="dialog">
+                        <b>李文（白族）：</b>苏梅，新年好！春节回家过得怎么样？
+                    </div>
+                    
+                    <div class="dialog">
+                        <b>苏梅（傣族）：</b>哈哈，我们傣族其实更看重泼水节，不过现在也过春节了。倒是听说你们白族的"本主节"很热闹？
+                    </div>
+                    
+                    <div class="dialog">
+                        <b>李文：</b>是啊！本主节是我们白族特有的节日，春节这段时间举行。我们村子里每家每户都会祭拜本主神，祈求新一年风调雨顺。今年我还参加了跳霸王鞭呢！
+                    </div>
+                    
+                    <div class="dialog">
+                        <b>苏梅：</b>霸王鞭？那是什么？
+                    </div>
+                    
+                    <div class="dialog">
+                        <b>李文：</b>就是我们白族男子在广场上挥舞长鞭，鞭子甩起来发出很响的声音，可以驱邪纳福。你知道吗，我练习了一个月才敢上场表演，手上都磨出老茧了！
+                    </div>
+                    
+                    <div class="dialog">
+                        <b>苏梅：</b>这么厉害！我们傣族虽然主要过泼水节，但春节期间也有舞象脚、打陀螺等活动。最有趣的是我奶奶会做各种漂亮的糯米糕点，颜色鲜艳，象征吉祥。
+                    </div>
+                    
+                    <div class="dialog">
+                        <b>李文：</b>我们白族也有特色美食！春节必吃"白族八大碗"，有鱼有肉还有汤，象征丰盛团圆。最特别的是"乳扇"，那可是我们白族独有的奶制品。
+                    </div>
+                </div>
+                
+                <div class="story-footer">
+                    <div class="ethnicities">
+                        <div class="ethnicity-tag">白族</div>
+                        <div class="ethnicity-tag">傣族</div>
+                    </div>
+                    <button class="read-more">阅读完整剧情</button>
+                </div>
+            </div>
+            
+            <div class="story-card">
+                <div class="story-header">
+                    <h2 class="story-title">「山地相遇」傈僳族猎人与拉祜族村民的故事</h2>
+                    <div class="story-meta">
+                        <div><span class="meta-icon">📅</span> 2023-01-08</div>
+                        <div><span class="meta-icon">👁️</span> 1,872次阅读</div>
+                        <div><span class="meta-icon">💬</span> 18条评论</div>
+                    </div>
+                </div>
+                
+                <div class="story-content">
+                    <div class="character">【场景：云南怒江峡谷的深山中，傈僳族青年阿杰在打猎途中遇到了迷路的拉祜族青年达瓦】</div>
+                    
+                    <div class="dialog">
+                        <b>阿杰（傈僳族）：</b>（警惕地观察）你是什么人？为什么出现在这片山林？
+                    </div>
+                    
+                    <div class="dialog">
+                        <b>达瓦（拉祜族）：</b>（举起双手表示友好）别紧张，兄弟。我是隔壁山头拉祜寨子的人，叫达瓦。我来追一头受伤的猎物，不小心迷路了。
+                    </div>
+                    
+                    <div class="dialog">
+                        <b>阿杰：</b>（放下弓箭）原来是拉祜兄弟。听说你们拉祜人是"打虎英雄"，真有这回事吗？
+                    </div>
+                    
+                    <div class="dialog">
+                        <b>达瓦：</b>（自豪地笑）这是祖先留下的称号。我们拉祜族确实有勇猛的狩猎传统，尤其是狩猎大型猛兽。不过现在为了保护野生动物，我们已经很少打猎了。今天是追踪一头受伤的野猪，想把它治好放生。
+                    </div>
+                </div>
+                
+                <div class="story-footer">
+                    <div class="ethnicities">
+                        <div class="ethnicity-tag">傈僳族</div>
+                        <div class="ethnicity-tag">拉祜族</div>
+                    </div>
+                    <button class="read-more">阅读完整剧情</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

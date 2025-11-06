@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服饰文化 - 9 Personalities of Yunnan Ethnic (9PYE)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f5f8f5; /* 浅绿色背景 */
+        }
+        
+        /* 侧边栏样式 */
+        .sidebar {
+            width: 250px;
+            background: #34a853; /* 主题绿色 */
+            box-shadow: 2px 0 15px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+        
+        .sidebar-header {
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            padding: 0 20px 15px;
+            margin-bottom: 15px;
+        }
+        
+        .sidebar-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.4;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .nav-item {
+            padding: 14px 25px;
+            border-left: 4px solid transparent;
+            color: rgba(255,255,255,0.9);
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .nav-item:hover {
+            background-color: rgba(255,255,255,0.1);
+            border-left-color: #fff;
+        }
+        
+        .nav-item.active {
+            background-color: rgba(255,255,255,0.15);
+            border-left-color: #fff;
+            font-weight: bold;
+        }
+        
+        /* 主内容区样式 */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+        }
+        
+        .page-title {
+            color: #34a853;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .page-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #34a853;
+            margin: 15px auto;
+        }
+        
+        .costume-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .ethnic-costume {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .costume-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .ethnic-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #34a853;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .costume-title {
+            font-size: 24px;
+            color: #333;
+        }
+        
+        .costume-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .costume-image {
+            width: 250px;
+            height: 250px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+        
+        .costume-description {
+            flex: 1;
+            min-width: 300px;
+            line-height: 1.7;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>欢迎来到<br>9 Personalities of<br>Yunnan Ethnic (9PYE)</h2>
+        </div>
+        <div class="sidebar-nav">
+            <a href="index.html" style="text-decoration: none; color: inherit;"><div class="nav-item">首页</div></a>
+<a href="theater.html" style="text-decoration: none; color: inherit;"><div class="nav-item">小剧场</div></a>
+<a href="clothing-culture.html" style="text-decoration: none; color: inherit;"><div class="nav-item active">服饰文化</div></a>
+<a href="language.html" style="text-decoration: none; color: inherit;"><div class="nav-item">语言文化</div></a>
+<a href="about-us.html" style="text-decoration: none; color: inherit;"><div class="nav-item">关注我们</div></a>
+<a href="feedback.html" style="text-decoration: none; color: inherit;"><div class="nav-item">反馈</div></a>
+        </div>
+    </div>
+    
+    <!-- 主内容区 -->
+    <div class="main-content">
+        <h1 class="page-title">云南民族服饰文化</h1>
+        
+        <div class="costume-container">
+            <div class="ethnic-costume">
+                <div class="costume-header">
+                    <div class="ethnic-circle">a</div>
+                    <h2 class="costume-title">白族服饰</h2>
+                </div>
+                <div class="costume-content">
+                    <div class="costume-image">白族服饰图片展示区</div>
+                    <div class="costume-description">
+                        <p>白族传统服饰体现了汉文化与本民族特色的融合。白族妇女爱穿蓝白相间的服装，上衣多为对襟或右衽，下穿宽腿裤或百褶裙。</p>
+                        <p>服饰上常绣有精美的图案，如花卉、蝴蝶等吉祥图案。头饰也非常讲究，不同地区有不同款式的包头，如大理地区的"白族包头"尤为著名。</p>
+                        <p>男性服饰相对简朴，多为白布对襟褂，宽腿裤，头围白或青色头巾。在节日或重要场合，会穿着更为隆重的服饰展示白族文化的独特魅力。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ethnic-costume">
+                <div class="costume-header">
+                    <div class="ethnic-circle">b</div>
+                    <h2 class="costume-title">哈尼族服饰</h2>
+                </div>
+                <div class="costume-content">
+                    <div class="costume-image">哈尼族服饰图片展示区</div>
+                    <div class="costume-description">
+                        <p>哈尼族服饰以黑色为主，体现了"崇尚黑色"的民族审美特色。女性传统服饰包括黑色上衣、黑色或蓝黑色百褶裙，配以各种彩色绣片和银饰装饰。</p>
+                        <p>哈尼族妇女的头饰极具特色，不同支系有不同的包头方式。如红河哈尼族的"锅盖帽"、"蘑菇帽"等，都是代表性的头饰。</p>
+                        <p>男性服装较为朴素，多为黑色或蓝黑色对襟上衣，宽松裤子，头缠黑色或蓝黑色头巾。哈尼族服饰既实用又美观，体现了他们勤劳朴实的民族性格。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ethnic-costume">
+                <div class="costume-header">
+                    <div class="ethnic-circle">c</div>
+                    <h2 class="costume-title">傣族服饰</h2>
+                </div>
+                <div class="costume-content">
+                    <div class="costume-image">傣族服饰图片展示区</div>
+                    <div class="costume-description">
+                        <p>傣族服饰以其色彩鲜艳、款式独特而闻名。女性常穿紧身短上衣和长筒裙，上衣多为对襟或斜襟，下着长筒裙（又称"筒裙"或"笼帕")。</p>
+                        <p>傣族服饰最大的特点是追求自然、轻便、凉爽，适应热带气候。节日盛装更是华丽，加入精美绣花和银饰点缀，体现浓郁的东南亚风情。</p>
+                        <p>男性传统服饰为白色或彩色上衣，下穿宽松长裤或短裤，有时围一块布（称为"龙伍"）。整体服饰呈现出热带雨林地区特有的民族审美特色。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

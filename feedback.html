@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>反馈 - 9 Personalities of Yunnan Ethnic (9PYE)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f5f8f5; /* 浅绿色背景 */
+        }
+        
+        /* 侧边栏样式 */
+        .sidebar {
+            width: 250px;
+            background: #34a853; /* 主题绿色 */
+            box-shadow: 2px 0 15px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+        
+        .sidebar-header {
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            padding: 0 20px 15px;
+            margin-bottom: 15px;
+        }
+        
+        .sidebar-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.4;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .nav-item {
+            padding: 14px 25px;
+            border-left: 4px solid transparent;
+            color: rgba(255,255,255,0.9);
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .nav-item:hover {
+            background-color: rgba(255,255,255,0.1);
+            border-left-color: #fff;
+        }
+        
+        .nav-item.active {
+            background-color: rgba(255,255,255,0.15);
+            border-left-color: #fff;
+            font-weight: bold;
+        }
+        
+        /* 主内容区样式 */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+        }
+        
+        .page-title {
+            color: #34a853;
+            font-size: 28px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .content-section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            color: #34a853;
+            margin-bottom: 20px;
+        }
+        
+        .feedback-form {
+            margin-top: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: #34a853;
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #34a853;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(52,168,83,0.3);
+        }
+        
+        .submit-btn:hover {
+            background: #2d9249;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(52,168,83,0.4);
+        }
+        
+        .feedback-types {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .feedback-type {
+            padding: 8px 16px;
+            background-color: #f0f7f0;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .feedback-type:hover {
+            background-color: #e0f0e0;
+        }
+        
+        .feedback-type.active {
+            background-color: #34a853;
+            color: white;
+            border-color: #34a853;
+        }
+    </style>
+</head>
+<body>
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>欢迎来到<br>9 Personalities of<br>Yunnan Ethnic (9PYE)</h2>
+        </div>
+        <div class="sidebar-nav">
+            <a href="index.html" style="text-decoration: none; color: inherit;"><div class="nav-item">首页</div></a>
+            <a href="theater.html" style="text-decoration: none; color: inherit;"><div class="nav-item">小剧场</div></a>
+            <a href="clothing-culture.html" style="text-decoration: none; color: inherit;"><div class="nav-item">服饰文化</div></a>
+            <a href="language.html" style="text-decoration: none; color: inherit;"><div class="nav-item">语言文化</div></a>
+            <a href="about-us.html" style="text-decoration: none; color: inherit;"><div class="nav-item">关注我们</div></a>
+            <a href="feedback.html" style="text-decoration: none; color: inherit;"><div class="nav-item active">反馈</div></a>
+        </div>
+    </div>
+    
+    <!-- 主内容区 -->
+    <div class="main-content">
+        <h1 class="page-title">意见反馈</h1>
+        
+        <div class="content-section">
+            <h2 class="section-title">我们期待您的建议</h2>
+            <p>感谢您使用9 Personalities of Yunnan Ethnic (9PYE)。您的反馈对我们非常重要，它将帮助我们不断改进产品，提供更好的用户体验。</p>
+            
+            <div class="feedback-form">
+                <div class="form-group">
+                    <label>反馈类型</label>
+                    <div class="feedback-types">
+                        <span class="feedback-type active">内容建议</span>
+                        <span class="feedback-type">功能优化</span>
+                        <span class="feedback-type">错误报告</span>
+                        <span class="feedback-type">民族文化补充</span>
+                        <span class="feedback-type">其他</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="name">您的称呼（选填）</label>
+                    <input type="text" id="name" class="form-control" placeholder="请输入您的称呼">
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact">联系方式（选填）</label>
+                    <input type="text" id="contact" class="form-control" placeholder="请输入您的邮箱或手机号，方便我们回复您">
+                </div>
+                
+                <div class="form-group">
+                    <label for="feedback-content">反馈内容 <span style="color: red;">*</span></label>
+                    <textarea id="feedback-content" class="form-control" placeholder="请详细描述您的建议或发现的问题..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="attachment">上传截图（选填）</label>
+                    <input type="file" id="attachment" accept="image/*" style="margin-top: 10px;">
+                    <p style="font-size: 14px; color: #666; margin-top: 5px;">支持jpg、png、gif格式图片，大小不超过5MB</p>
+                </div>
+                
+                <button type="submit" class="submit-btn">提交反馈</button>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2 class="section-title">常见问题</h2>
+            <div style="margin-top: 15px;">
+                <div style="margin-bottom: 20px;">
+                    <h3 style="font-size: 18px; color: #333; margin-bottom: 8px;">Q: 测试结果的准确性如何？</h3>
+                    <p style="color: #555;">A: 我们的测试基于云南各民族文化特征研究，但仅供娱乐参考，不代表科学结论。</p>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <h3 style="font-size: 18px; color: #333; margin-bottom: 8px;">Q: 为什么只选择了9个民族？</h3>
+                    <p style="color: #555;">A: 云南有25个少数民族，我们选择了具有鲜明特色的9个民族作为第一阶段。未来我们会逐步扩展更多民族内容。</p>
+                </div>
+                
+                <div>
+                    <h3 style="font-size: 18px; color: #333; margin-bottom: 8px;">Q: 如何参与文化内容的补充？</h3>
+                    <p style="color: #555;">A: 您可以通过上方的反馈表单向我们提供文化内容补充。我们非常欢迎对云南少数民族文化有研究的朋友参与内容建设。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 简单的反馈类型选择交互
+        document.addEventListener('DOMContentLoaded', function() {
+            const types = document.querySelectorAll('.feedback-type');
+            
+            types.forEach(type => {
+                type.addEventListener('click', function() {
+                    types.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // 表单提交处理
+            document.querySelector('.submit-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                const content = document.getElementById('feedback-content').value;
+                
+                if (!content.trim()) {
+                    alert('请填写反馈内容');
+                    return;
+                }
+                
+                alert('感谢您的反馈！我们会认真阅读您的意见。');
+                // 实际应用中这里应该提交表单数据到服务器
+            });
+        });
+    </script>
+</body>
+</html>

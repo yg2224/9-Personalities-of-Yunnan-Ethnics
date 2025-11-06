@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>语言文化 - 9 Personalities of Yunnan Ethnic (9PYE)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f5f8f5; /* 浅绿色背景 */
+        }
+        
+        /* 侧边栏样式 */
+        .sidebar {
+            width: 250px;
+            background: #34a853; /* 主题绿色 */
+            box-shadow: 2px 0 15px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+        
+        .sidebar-header {
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            padding: 0 20px 15px;
+            margin-bottom: 15px;
+        }
+        
+        .sidebar-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.4;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .nav-item {
+            padding: 14px 25px;
+            border-left: 4px solid transparent;
+            color: rgba(255,255,255,0.9);
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .nav-item:hover {
+            background-color: rgba(255,255,255,0.1);
+            border-left-color: #fff;
+        }
+        
+        .nav-item.active {
+            background-color: rgba(255,255,255,0.15);
+            border-left-color: #fff;
+            font-weight: bold;
+        }
+        
+        /* 主内容区样式 */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+        }
+        
+        .page-title {
+            color: #34a853;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .page-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #34a853;
+            margin: 15px auto;
+        }
+        
+        .language-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .language-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .language-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .ethnic-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #34a853;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .language-title {
+            font-size: 24px;
+            color: #333;
+        }
+        
+        .language-info {
+            margin-bottom: 20px;
+        }
+        
+        .info-row {
+            display: flex;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 10px;
+        }
+        
+        .info-label {
+            width: 120px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .info-content {
+            flex: 1;
+            color: #444;
+        }
+        
+        .language-description {
+            line-height: 1.7;
+            color: #444;
+        }
+        
+        .example-phrases {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        
+        .example-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #34a853;
+        }
+        
+        .phrase-item {
+            margin-bottom: 8px;
+            display: flex;
+        }
+        
+        .original {
+            width: 40%;
+            color: #555;
+        }
+        
+        .translation {
+            flex: 1;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>欢迎来到<br>9 Personalities of<br>Yunnan Ethnic (9PYE)</h2>
+        </div>
+        <div class="sidebar-nav">
+            <a href="index.html" style="text-decoration: none; color: inherit;"><div class="nav-item">首页</div></a>
+<a href="theater.html" style="text-decoration: none; color: inherit;"><div class="nav-item">小剧场</div></a>
+<a href="clothing-culture.html" style="text-decoration: none; color: inherit;"><div class="nav-item">服饰文化</div></a>
+<a href="language.html" style="text-decoration: none; color: inherit;"><div class="nav-item active">语言文化</div></a>
+<a href="about-us.html" style="text-decoration: none; color: inherit;"><div class="nav-item">关注我们</div></a>
+<a href="feedback.html" style="text-decoration: none; color: inherit;"><div class="nav-item">反馈</div></a>
+        </div>
+    </div>
+    
+    <!-- 主内容区 -->
+    <div class="main-content">
+        <h1 class="page-title">云南民族语言文化</h1>
+        
+        <div class="language-container">
+            <div class="language-card">
+                <div class="language-header">
+                    <div class="ethnic-circle">g</div>
+                    <h2 class="language-title">纳西语与东巴文</h2>
+                </div>
+                
+                <div class="language-info">
+                    <div class="info-row">
+                        <div class="info-label">语系分类</div>
+                        <div class="info-content">汉藏语系藏缅语族彝语支</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">使用人口</div>
+                        <div class="info-content">约30万人</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">主要分布</div>
+                        <div class="info-content">云南省丽江市、迪庆藏族自治州、大理白族自治州等地</div>
+                    </div>
+                </div>
+                
+                <div class="language-description">
+                    <p>纳西语是纳西族人民使用的语言，属于汉藏语系藏缅语族彝语支。其最大特色在于保存了古老的东巴文，这是世界上仅存的象形文字之一，被誉为"活着的象形文字化石"。</p>
+                    <p>东巴文有1400多个基本象形字，可以记录纳西族的历史、宗教、天文、医药等方面的知识。东巴文字的书写具有强烈的图画性，直观而形象，一个字就能表达一个完整的概念或行为。</p>
+                    <p>纳西语有多种方言，主要包括丽江方言、永宁方言和宁蒗方言等。语音系统较为复杂，有8个声调，辅音丰富多样，表达能力强。</p>
+                    
+                    <div class="example-phrases">
+                        <div class="example-title">基本日常用语示例：</div>
+                        <div class="phrase-item">
+                            <div class="original">nga la：</div>
+                            <div class="translation">你好</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div class="original">hə p'er：</div>
+                            <div class="translation">谢谢</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div class="original">co yi fv：</div>
+                            <div class="translation">再见</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="language-card">
+                <div class="language-header">
+                    <div class="ethnic-circle">c</div>
+                    <h2 class="language-title">傣语</h2>
+                </div>
+                
+                <div class="language-info">
+                    <div class="info-row">
+                        <div class="info-label">语系分类</div>
+                        <div class="info-content">汉藏语系壮侗语族傣语支</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">使用人口</div>
+                        <div class="info-content">约120万人</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">主要分布</div>
+                        <div class="info-content">云南省西双版纳傣族自治州、德宏傣族景颇族自治州及临沧市等地</div>
+                    </div>
+                </div>
+                
+                <div class="language-description">
+                    <p>傣语是傣族使用的语言，属于汉藏语系壮侗语族傣语支。傣语分为西双版纳傣语、德宏傣语和景洪傣语等方言，彼此间有一定的差异。</p>
+                    <p>傣语有自己的文字系统——傣文，是一种拼音文字，形态上类似于缅文，圆润流畅，形如竹节。傣文从上至下，从左至右书写，具有浓郁的宗教色彩，长期用于记录佛经和民间文学。</p>
+                    <p>傣语音节结构简单，但声调复杂，不同方言的声调数量从5个到10个不等。语法上，傣语属于分析性语言，词序为主-谓-宾，修饰语后置。</p>
+                    
+                    <div class="example-phrases">
+                        <div class="example-title">基本日常用语示例：</div>
+                        <div class="phrase-item">
+                            <div class="original">阿木嘎：</div>
+                            <div class="translation">你好</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div class="original">卡普昆：</div>
+                            <div class="translation">谢谢</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div class="original">卡腊：</div>
+                            <div class="translation">再见</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

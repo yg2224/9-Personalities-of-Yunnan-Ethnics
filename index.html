@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9 Personalities of Yunnan Ethnics (9PYE)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f5f8f5; /* 浅绿色背景 */
+            flex-direction: row; /* 确保水平排列 */
+            overflow-x: hidden; /* 防止水平滚动 */
+        }
+        
+        /* 侧边栏样式 */
+        .sidebar {
+            width: 250px;
+            background: #34a853; /* 主题绿色 */
+            box-shadow: 2px 0 15px rgba(0,0,0,0.1);
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            color: white;
+            flex-shrink: 0; /* 防止侧边栏被压缩 */
+        }
+        
+        .sidebar-header {
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            padding: 0 20px 15px;
+            margin-bottom: 15px;
+        }
+        
+        .sidebar-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.4;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .nav-item {
+            padding: 14px 25px;
+            border-left: 4px solid transparent;
+            color: rgba(255,255,255,0.9);
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .nav-item:hover {
+            background-color: rgba(255,255,255,0.1);
+            border-left-color: #fff;
+        }
+        
+        .nav-item.active {
+            background-color: rgba(255,255,255,0.15);
+            border-left-color: #fff;
+            font-weight: bold;
+        }
+        
+        /* 主内容区样式 */
+        .main-content {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto; /* 内容过多时可滚动 */
+        }
+        
+        .hero-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        /* 修改简介样式为矩形框 */
+        .intro-container {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(52,168,83,0.2);
+            border: 2px solid #34a853;
+        }
+        
+        .intro-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #34a853;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .intro-text {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        
+        .enter-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #34a853;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(52,168,83,0.3);
+            margin-top: 20px;
+        }
+        
+        .enter-btn:hover {
+            background: #2d9249;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(52,168,83,0.4);
+        }
+        
+        /* 九宫格样式 */
+        .grid-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f8f5;
+            border-radius: 10px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .grid-item {
+            aspect-ratio: 1/1;
+            background: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+        }
+        
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(52,168,83,0.2);
+            border: 1px solid #34a853;
+        }
+        
+        .ethnic-image {
+            width: 100%;
+            height: 65%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .grid-item:hover .ethnic-image {
+            transform: scale(1.05);
+        }
+        
+        .ethnic-name {
+            padding: 15px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            height: 35%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .grid-caption {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .yunnan-title {
+            margin-bottom: 30px;
+            color: #34a853;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .yunnan-icon {
+            margin-right: 10px;
+            color: #34a853;
+            font-size: 28px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                padding: 10px 0;
+            }
+            
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .intro-container {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>欢迎来到<br>9 Personalities of<br>Yunnan Ethnics (9PYE)</h2>
+        </div>
+        <div class="sidebar-nav">
+            <a href="/" style="text-decoration: none; color: inherit;"><div class="nav-item active">首页</div></a>
+            <a href="theater.html" style="text-decoration: none; color: inherit;"><div class="nav-item">小剧场</div></a>
+            <a href="clothing-culture.html" style="text-decoration: none; color: inherit;"><div class="nav-item">服饰文化</div></a>
+            <a href="language.html" style="text-decoration: none; color: inherit;"><div class="nav-item">语言文化</div></a>
+            <a href="about-us.html" style="text-decoration: none; color: inherit;"><div class="nav-item">关注我们</div></a>
+            <a href="feedback.html" style="text-decoration: none; color: inherit;"><div class="nav-item">反馈</div></a>
+        </div>
+    </div>
+    
+    <!-- 主内容区 -->
+    <div class="main-content">
+        <div class="hero-section">
+            <!-- 将圆形简介改为矩形框 -->
+            <div class="intro-container">
+                <div class="intro-title">关于我们</div>
+                <div class="intro-text">
+                    欢迎光临9 Personalities of Yunnan Ethnics(9PYE)！我们致力于打造将人格心理测试与云南地区少数民族文化融合的多元平台，在这里，仅需10分钟，你便能收获一份生动又深度的报告，它将精准剖析你是何人，并精准匹配与你性格相对应的云南少数民族类型。想知道你的PYE吗？点击下方马上进入测试！
+                </div>
+            </div>
+            <a href="test.html" class="enter-btn">
+                查看我的民族性格 →
+            </a>
+        </div>
+        
+        <div class="yunnan-title">
+            <span class="yunnan-icon">▲</span> 云南民族性格类型:
+        </div>
+        
+        <div class="grid-container">
+            <div class="grid">
+                <a href="baizu.html" class="grid-item">
+                    <img src="images/白族.png" alt="白族" class="ethnic-image">
+                    <div class="ethnic-name">
+                        白族——热情好客的本主信徒
+                    </div>
+                </a>
+                <a href="hanizu.html" class="grid-item">
+                    <img src="images/哈尼族.png" alt="哈尼族" class="ethnic-image">
+                    <div class="ethnic-name">
+                        哈尼族——勤劳的大地锦衣耕织者
+                    </div>
+                </a>
+                <a href="daizu.html" class="grid-item">
+                    <img src="images/傣族.png" alt="傣族" class="ethnic-image">
+                    <div class="ethnic-name">
+                        傣族——追求美学的艺术家
+                    </div>
+                </a>
+                <a href="lisuzu.html" class="grid-item">
+                    <img src="images/傈僳族.png" alt="傈僳族" class="ethnic-image">
+                    <div class="ethnic-name">
+                        傈僳族——自然之子
+                    </div>
+                </a>
+                <a href="lahuzu.html" class="grid-item">
+                    <img src="images/拉祜族.png" alt="拉祜族" class="ethnic-image">
+                    <div class="ethnic-name">
+                        拉祜族——血性豪放的猎虎者
+                    </div>
+                </a>
+                <a href="wazu.html" class="grid-item">
+                    <img src="images/佤族.png" alt="佤族" class="ethnic-image">
+                    <div class="ethnic-name">
+                        佤族——世界之外的原始部落首领
+                    </div>
+                </a>
+                <a href="naxizu.html" class="grid-item">
+                    <img src="images/纳西族.png" alt="纳西族" class="ethnic-image">
+                    <div class="ethnic-name">
+                        纳西族——东巴文明学者
+                    </div>
+                </a>
+                <a href="bulanzu.html" class="grid-item">
+                    <img src="images/布朗族.png" alt="布朗族" class="ethnic-image">
+                    <div class="ethnic-name">
+                        布朗族——佛系养成家
+                    </div>
+                </a>
+                <a href="dulongzu.html" class="grid-item">
+                    <img src="images/独龙族.png" alt="独龙族" class="ethnic-image">
+                    <div class="ethnic-name">
+                        独龙族——怀揣希望的纹面人
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
