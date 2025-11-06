@@ -83,7 +83,8 @@
             justify-content: space-between;
             align-items: center; /* 确保垂直居中对齐 */
             margin: 0 auto;
-            width: 80%;
+            width: 100%;
+            max-width: 500px;
         }
         .option {
             text-align: center;
@@ -91,6 +92,7 @@
             display: flex;
             justify-content: center;
             align-items: center; /* 确保每个选项内容垂直居中 */
+            flex: 1;
         }
         .option input[type="radio"] {
             display: none;
@@ -200,7 +202,8 @@
             display: flex;
             justify-content: space-between;
             margin: 5px auto;
-            width: 80%;
+            width: 100%;
+            max-width: 500px;
             color: #666;
             font-size: 14px;
         }
@@ -387,6 +390,140 @@
         
         .home-btn i {
             margin-right: 5px;
+        }
+
+        /* 响应式设计 - 平板和手机端 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 10px 0;
+            }
+
+            h1 {
+                font-size: 32px;
+                margin-bottom: 20px;
+            }
+
+            .question {
+                padding: 12px;
+                margin-bottom: 15px;
+            }
+
+            .question-text {
+                font-size: 14px;
+                line-height: 1.5;
+                margin-bottom: 12px;
+            }
+
+            .options {
+                max-width: 100%;
+                padding: 0 5px;
+            }
+
+            .option-labels {
+                max-width: 100%;
+                font-size: 12px;
+            }
+
+            /* 缩小圆圈尺寸以适应手机屏幕 */
+            .option:nth-child(1) label, .option:nth-child(7) label {
+                width: 36px;
+                height: 36px;
+            }
+            .option:nth-child(2) label, .option:nth-child(6) label {
+                width: 32px;
+                height: 32px;
+            }
+            .option:nth-child(3) label, .option:nth-child(5) label {
+                width: 28px;
+                height: 28px;
+            }
+            .option:nth-child(4) label {
+                width: 24px;
+                height: 24px;
+            }
+
+            /* 调整勾号大小 */
+            .option:nth-child(1) input[type="radio"]:checked + label::after,
+            .option:nth-child(7) input[type="radio"]:checked + label::after {
+                font-size: 14px;
+            }
+            .option:nth-child(2) input[type="radio"]:checked + label::after,
+            .option:nth-child(6) input[type="radio"]:checked + label::after {
+                font-size: 12px;
+            }
+            .option:nth-child(3) input[type="radio"]:checked + label::after,
+            .option:nth-child(5) input[type="radio"]:checked + label::after {
+                font-size: 11px;
+            }
+            .option:nth-child(4) input[type="radio"]:checked + label::after {
+                font-size: 10px;
+            }
+
+            .submit-btn {
+                padding: 12px 24px;
+                font-size: 16px;
+                margin: 20px auto;
+            }
+
+            .home-btn {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+        }
+
+        /* 超小屏幕 (iPhone SE等) */
+        @media (max-width: 380px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .question-text {
+                font-size: 13px;
+            }
+
+            /* 进一步缩小圆圈 */
+            .option:nth-child(1) label, .option:nth-child(7) label {
+                width: 30px;
+                height: 30px;
+            }
+            .option:nth-child(2) label, .option:nth-child(6) label {
+                width: 26px;
+                height: 26px;
+            }
+            .option:nth-child(3) label, .option:nth-child(5) label {
+                width: 22px;
+                height: 22px;
+            }
+            .option:nth-child(4) label {
+                width: 20px;
+                height: 20px;
+            }
+
+            /* 调整勾号大小 */
+            .option:nth-child(1) input[type="radio"]:checked + label::after,
+            .option:nth-child(7) input[type="radio"]:checked + label::after {
+                font-size: 12px;
+            }
+            .option:nth-child(2) input[type="radio"]:checked + label::after,
+            .option:nth-child(6) input[type="radio"]:checked + label::after {
+                font-size: 10px;
+            }
+            .option:nth-child(3) input[type="radio"]:checked + label::after,
+            .option:nth-child(5) input[type="radio"]:checked + label::after {
+                font-size: 9px;
+            }
+            .option:nth-child(4) input[type="radio"]:checked + label::after {
+                font-size: 8px;
+            }
+
+            .option-labels {
+                font-size: 11px;
+            }
         }
     </style>
 </head>
